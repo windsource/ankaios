@@ -1,12 +1,8 @@
 name: Common Steps
-description: |
-  For non-release builds just checkout the code.
-  For release builds, download the vendored source.
+description: Download and extract vendored source
 runs:
   using: "composite"
   steps:
-    - uses: actions/checkout@v4.1.1
-      if: ${{ ! startsWith(github.ref, 'refs/tags/') }}
     - name: Get vendored source
       if: ${{ startsWith(github.ref, 'refs/tags/') }}
       uses: actions/download-artifact@v4.1.7

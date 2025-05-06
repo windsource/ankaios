@@ -40,7 +40,9 @@ jobs:
       image: ghcr.io/eclipse-ankaios/devcontainer-base:0.10.3
       options: --privileged
     steps:
-      - uses: ./.github/actions/checkout-or-use-vendored-source
+      - uses: actions/checkout@v4.1.1
+      - uses: ./.github/actions/use-vendored-source
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
       - name: Build debug
         run: cargo build
       - name: Prepare system tests
@@ -73,7 +75,9 @@ jobs:
       image: ghcr.io/eclipse-ankaios/devcontainer-base:0.10.3
       options: --privileged
     steps:
-      - uses: ./.github/actions/checkout-or-use-vendored-source
+      - uses: actions/checkout@v4.1.1
+      - uses: ./.github/actions/use-vendored-source
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
       - name: Run unit tests
         run: just utest
       - uses: actions/upload-artifact@v4.3.3
@@ -115,7 +119,9 @@ jobs:
       image: ghcr.io/eclipse-ankaios/devcontainer-base:0.10.3
       options: --privileged
     steps:
-      - uses: ./.github/actions/checkout-or-use-vendored-source
+      - uses: actions/checkout@v4.1.1
+      - uses: ./.github/actions/use-vendored-source
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
       - name: Create code coverage html report
         run: |
           rustup component add llvm-tools-preview
@@ -135,7 +141,9 @@ jobs:
       image: ghcr.io/eclipse-ankaios/devcontainer-base:0.10.3
       options: --privileged
     steps:
-      - uses: ./.github/actions/checkout-or-use-vendored-source
+      - uses: actions/checkout@v4.1.1
+      - uses: ./.github/actions/use-vendored-source
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
       - name: Build linux-amd64 release-mode
         run: |
           cargo build --release
@@ -168,7 +176,9 @@ jobs:
       image: ghcr.io/eclipse-ankaios/devcontainer-base:0.10.3
       options: --user root
     steps:
-      - uses: ./.github/actions/checkout-or-use-vendored-source
+      - uses: actions/checkout@v4.1.1
+      - uses: ./.github/actions/use-vendored-source
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
 
       - name: Build linux-arm64 release-mode
         run: |
@@ -197,7 +207,9 @@ jobs:
       image: ghcr.io/eclipse-ankaios/devcontainer-base:0.10.3
       options: --user root
     steps:
-      - uses: ./.github/actions/checkout-or-use-vendored-source
+      - uses: actions/checkout@v4.1.1
+      - uses: ./.github/actions/use-vendored-source
+        if: ${{ startsWith(github.ref, 'refs/tags/') }}
       - run: |
           just trace-requirements dist/req_tracing_report.html
       - uses: actions/upload-artifact@v4.3.3
