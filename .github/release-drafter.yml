@@ -7,30 +7,26 @@ change-template: '- $TITLE (#$NUMBER)'
 
 categories:
   - title: 🛠️ Breaking Changes
-    labels:
-      - breaking-change
+    label: breaking-change
   - title: ✨ Features
-    labels:
-      - enhancement
+    label: enhancement
   - title: 🐛 Bug Fixes
-    labels:
-      - bug
+    label: bug
   - title: 📚 Documentation
-    labels:
-      - documentation
+    label: documentation
   - title: Other Changes
-    label: '*'
+    label: chorse
       
 # Version resolution
 version-resolver:
   major:
     labels:
       - 'major'
-      - 'breaking'
+      - 'breaking-change'
   minor:
     labels:
       - 'minor'
-      - 'feature'
+      - 'enhancement'
   patch:
     labels:
       - 'patch'
