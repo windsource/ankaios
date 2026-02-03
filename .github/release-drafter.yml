@@ -19,8 +19,7 @@ categories:
     labels:
       - documentation
   - title: Other Changes
-    labels:
-      - "*"
+    label: '*'
       
 # Version resolution
 version-resolver:
