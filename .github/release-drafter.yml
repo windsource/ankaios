@@ -15,7 +15,7 @@ categories:
   - title: 📚 Documentation
     label: documentation
   - title: Other Changes
-    label: chorse
+    label: chore
       
 # Version resolution
 version-resolver:
