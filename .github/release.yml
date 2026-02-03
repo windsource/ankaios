@@ -2,12 +2,12 @@ changelog:
   exclude:
     labels:
       - ignore-for-release
-    authors:
-      - windsource
-      - inf17101
-      - krucod3
-      - christoph-hamm
-      - GabyUnalaq
+    #authors:
+    #  - windsource
+    #  - inf17101
+    #  - krucod3
+    #  - christoph-hamm
+    #  - GabyUnalaq
   categories:
     - title: 🛠️ Breaking Changes
       labels:
